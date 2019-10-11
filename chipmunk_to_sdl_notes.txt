@@ -1,0 +1,53 @@
+Chipmunk uses Cartesian coordinates, the same you find in any math book: 
+- X increases to the right 
+- Y increases upward
+- Rotations go counter-clockwise (right-hand-rule) and are in radians. 
+- Additionally, x and y positions represent the center of an object.
+
+SDL on the other hand:
+- X increases to the right (same)
+- Y increases downward (inverted)
+- Rotations go clockwise and are in degrees
+- x and positions represent the top-left corner of an object
+
+So every time you want to draw your Chipmunk object in SDL, take your Chipmunk values and:
+- Invert the Y (e.g. invert_pos_y = SCREEN_HEIGHT - chipmunk_pos.y)
+- Shift the x and y by 1/2 the width and height of your object
+- Convert radians to degrees (chipmunk_angle * (360.0 / (2 * PI))
+- flip the sign of the angle
+
+
+
+
+REFACTOR Entity struct to ad these values upon creation
+
+  ////FOR EACH CAR ENTITY////
+  int boxSize = 20;
+  int boxMass = 1;
+  cpFloat radius = cpvlength(cpv(boxSize, boxSize));
+
+  cpBody *boxBody = cpSpaceAddBody(g_space, cpBodyNew(boxMass, cpMomentForBox(boxMass, boxSize, boxSize)));
+  cpShape *boxShape = cpSpaceAddShape(g_space, cpBoxShapeNew(boxBody, boxSize, boxSize, 0.0));
+  cpShapeSetElasticity(boxShape, 0.0f);
+  cpShapeSetFriction(boxShape, 0.7f);
+ 
+  cpVect startPos = cpv(450 , 340);// set the starting position in chipmunk coordinates
+  cpBodySetPosition(boxBody,startPos);
+  SDL_Rect* chipmunkBox;
+  SDL_Surface *collisonBox;
+  collisonBox = IMG_Load("images/block.png");
+   cpShapeSetUserData(boxShape, collisonBox);
+   
+   ////FOR EACH CAR ENTITY////
+   
+
+TODO///REFACTOR ENTITES AND CARS SO THAT THEY ALL HAVE A BOUNDIUNG BOX UPON CREATION
+    
+	
+	
+	
+	/// rotate boxes with the cars
+	// refactor init and physics setups (GLIB, CHIPMUNK,SDL,JANSSON)
+	//obstacles with physics
+	// cars and obstackles with physics
+	// cars wrap the screen with bounding boxes in-tact
