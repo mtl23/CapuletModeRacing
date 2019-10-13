@@ -16,6 +16,17 @@ typedef struct Car_M
 	float health;
 	float heading;
 	Vector3D color_mod;
+
+	int testBoxSize;
+	int boxSize;
+	int boxMass;
+	SDL_Rect* chipmunkBox;
+	cpFloat radius;
+	cpBody *boxBody;
+	cpShape *boxShape;
+	cpVect startPos;
+
+
 	void(*draw) (struct Entity_S *car_self, SDL_Renderer *renderer); /**logic*<*/
 	void(*think) (struct Entity_S *car_self); /**logic*<*/
 	void(*update) (struct Car_M *car_self); /**physics*<*/
@@ -27,7 +38,7 @@ typedef struct Car_M
 *
 *@brief creates the players Car object
 */
-Car_M newPlayerCar(GString *model, int type, float PosX, float PosY, float sizeX, float sizeY);// creates a player car entity with the path to the sprite needed.
+Car_M newPlayerCar(GString *model, int type, float PosX, float PosY, float sizeX, float sizeY, cpSpace* g_space);// creates a player car entity with the path to the sprite needed.
 /**
 *
 *@brief creates an AI Car object

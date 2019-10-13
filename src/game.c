@@ -17,6 +17,8 @@
 #include "jansson.h"   
 #include "car.h"   
 #include "camera.h"
+#include "physics.h"
+
 
 extern int entityMax;
 
@@ -36,12 +38,10 @@ int main(int argc, char *argv[])
   //// Create an empty space, a chipmunk test. THIS IS OUR INIT PHYSICS
    
   cpSpace *g_space = NULL;
-  g_space = cpSpaceNew();
-  cpVect gravity = cpv(0, -10);
-  cpSpaceSetGravity(g_space, gravity);
+  g_space = InitPhysicsSystem();
  
   ////FOR EACH CAR ENTITY////
-  int boxSize = 20;
+  int boxSize = 1;
   int boxMass = 1;
   cpFloat radius = cpvlength(cpv(boxSize, boxSize));
 
@@ -53,9 +53,6 @@ int main(int argc, char *argv[])
   cpVect startPos = cpv(450 , 340);// set the starting position in chipmunk coordinates
   cpBodySetPosition(boxBody,startPos);
   
-  SDL_Surface *collisonBox;
-  collisonBox = IMG_Load("images/block.png");
-   cpShapeSetUserData(boxShape, collisonBox);
    
    ////FOR EACH CAR ENTITY////
 
@@ -112,26 +109,28 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	Sprite_M BG1;
 	Car_M p1car;
 	mat->str = "images/car.png";
-	p1car = newPlayerCar(mat, 1, Init_car_position.x, Init_car_position.y,128,128);
+	p1car = newPlayerCar(mat, 1, Init_car_position.x, Init_car_position.y, 128, 128, g_space);
+	BG1 = *spriteLoad("images/m7_map.png",256,256);
+	camera_M MyCam = newCamera(BG1);
 
 
+	/*TODO
+	
+	Refactor the entity system to make use of chipmunk intergaration.
+	
+	*/
 
-	/*
-	Vector2D boxPos;
-	boxPos.x = 0;
-	boxPos.y = 0;
-	Vector2D BoxSize;
-	BoxSize.x = boxSize;
-	BoxSize.y = boxSize;
-	cpVect boxStop = cpVect();
-	boxStop.x = boxPos.x;
-	boxStop.y = boxPos.y;
-	strncpy(boxSprite.filename, "Box1",  20);*/
-	int testBoxSize = 120;
+	int testBoxSize = 128;
 	SDL_Rect* chipmunkBox = new SDL_Rect();
 
 	chipmunkBox->h = testBoxSize;
 	chipmunkBox->w = testBoxSize;
+
+
+	/////////////////////EZ OBSTACLES TO BE REFACTORED TO OBSTACLE CLASS/////////////////////////
+	
+	//IMPLEMENTATION #1
+	
 	/*Car_M p0car;
 	mat->str = "images/block.png";
 	p0car = newCarObstacle(mat, 1, 450, 390, 32, 32);
@@ -147,7 +146,7 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	Car_M p4car;
 	mat->str = "images/block.png";
 	p4car = newCarObstacle(mat, 1, 500, 275,64,64);*/
-	//////////////////////////////////////////////
+	///////////////////IMPLEMENTATION #2/////////////////////////////
 
 	//Entity_S* Moo = EntityNew();
 	//Moo->position.x = 550;
@@ -156,51 +155,64 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	//Moo->size.y = 256;
 	//Moo->sprite = spriteLoad("images/redblock.png", 256, 256);
 	//Moo->sprite->angle = 270.0f;
-	//Moo->draw = &drawPlayerCar;
+	//Moo->draw = &drawPlayerCar;	
+	//////////END EZ OBSTACLES TO BE REFACTORED TO OBSTACLE CLASS///////////////////
+	
+	
 	float invertYpos;
 	float xPos_offset = 0;
 	float yPos_offset = 0;
-	/////////////////////////////
-	//SetCarPositon(p1car, Init_car_position );
-	BG1 = *spriteLoad("images/m7_map.png",256,256);
-	camera_M MyCam = newCamera(BG1);
-
 	do
  	{
 	SDL_RenderClear(g_renderer);	
 	DrawBG(BG1, MyCam);	
 
-	//TODO Currently the box and the car are on the same position but with diff coordinate systems. We need to follow a conversion process
-	//lastly we need to move the CAR wuth teh postion detail of the CHIPMUNK BOX
-	// refactor for all entities afterwards(THIS IS IMPORTANT!)
-	
-	
-	// chipmunk box
-	cpVect NewBoxCoordinates = cpBodyGetPosition(boxBody); // get new coordinates of the body
-	
-	
-	//-Shift the x and y by 1 / 2 the width and height of your object
-	//xPos_offset = (testBoxSize / 2);
-	//yPos_offset = (testBoxSize / 2);
-	chipmunkBox->x = NewBoxCoordinates.x;// +xPos_offset;  // update x pos to the sdl box
-	chipmunkBox->y = (NewBoxCoordinates.y);// +yPos_offset;
-	invertYpos =  WINDOW_HEIGHT - chipmunkBox->y;
-	//  update y pos for sdl box with necessary conversion [- Invert the Y (e.g. invert_pos_y = SCREEN_HEIGHT - chipmunk_pos.y)]
-	chipmunkBox->y = invertYpos;
-	SDL_RenderDrawRect(g_renderer, chipmunkBox); //  send it to the renderer
-	//chipmunk box
-	//- Convert radians to degrees (chipmunk_angle * (360.0 / (2 * PI))
-	//-flip the sign of the angle
-	/// mtl23 next step find proper conversion for chipmunk to sdl
 
+	/*TO DO 
+	
+	
+	REFACTOR BELOW CODE TO THE CAR.C LOGIC IN EITHER THINK OR DRAW, CHANGE FUNCTION SIGNMATURES AS NECESSARY 
+
+	YOU WILL NEED 'BOXBODY', WINDOOW_HEIGHT,
+	
+	
+	*/
+
+	//// chipmunk box's current position
+	cpVect NewBoxCoordinates = cpBodyGetPosition(boxBody); // get new coordinates of the body
+
+
+	//THIS SECTION GOES IN THINK
+
+	////-Shift the x and y by 1 / 2 the width and height of your object
+	////xPos_offset = (testBoxSize / 2);
+	////yPos_offset = (testBoxSize / 2);
+	chipmunkBox->x = (NewBoxCoordinates.x);//// +xPos_offset;  // update x pos to the sdl box
+	chipmunkBox->y = (NewBoxCoordinates.y);//// +yPos_offset;
+	invertYpos =  WINDOW_HEIGHT - chipmunkBox->y;
+	////  update y pos for sdl box with necessary conversion [- Invert the Y (e.g. invert_pos_y = SCREEN_HEIGHT - chipmunk_pos.y)]
+	chipmunkBox->y = invertYpos;
+
+
+	//THIS SECTION GOES IN DRAW
+	SDL_SetRenderDrawColor(g_renderer,0,0,255,0);////blue box buy default;
+	SDL_RenderDrawRect(g_renderer, chipmunkBox); ////  send it to the renderer
+	////chipmunk box
+	////- Convert radians to degrees (chipmunk_angle * (360.0 / (2 * PI))
+	////-flip the sign of the angle
+
+	
 
 	entityThinkAll();
 	entityDrawAll();
 	//for testing only, ovverride the loop logic to draw thw test car in the chipmunk simuation
 	p1car.car->position.x = chipmunkBox->x;
 	p1car.car->position.y = chipmunkBox->y;
-	spriteDraw(p1car.car->sprite, g_renderer, 0, p1car.car->size, p1car.car->position);
-	//'///////////////////////////
+
+	//TEST TO SEE IF COORDINATES OF THE BOX AND SPRITE ARE THE SAME.
+	//slog(("This is the position of the  box X:%d,Y:%d"), chipmunkBox->x, chipmunkBox->y);
+	//slog(("This is the position of the  sprite X:%f,Y:%f"), p1car.car->position.x, p1car.car->position.y);
+	
 
 		if(&g_e)
 					{
@@ -246,7 +258,6 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	spriteFree(&BG1);	
 	
 	entityFreeAll();
-	//entityFree(&p1car.car);
 	Mix_FreeMusic(menu_music);
 	menu_music=NULL; // so we know we freed it...
 	Mix_FreeMusic(demo_music);

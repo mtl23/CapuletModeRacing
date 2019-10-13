@@ -13,7 +13,7 @@
 extern SDL_Renderer* renderer;
 extern int WINDOW_WIDTH;
 extern int WINDOW_HEIGHT;
-Car_M newPlayerCar(GString *model, int type, float PosX, float PosY, float sizeX, float sizeY)// creates a player car entity with the path to the sprite needed.
+Car_M newPlayerCar(GString *model, int type, float PosX, float PosY, float sizeX, float sizeY, cpSpace* g_space)// creates a player car entity with the path to the sprite needed.
 {
 	struct Car_M pcar;
 	pcar.floaty =  5; 
@@ -31,17 +31,23 @@ Car_M newPlayerCar(GString *model, int type, float PosX, float PosY, float sizeX
 	pcar.car->think = &thinkCar;
 	pcar.car->size.x = sizeX;
 	pcar.car->size.y = sizeY;
-	//pcar.car->boxBody = cpSpaceAddBody(g_space, cpBodyNew(pcar.car->mass, cpMomentForBox(pcar.car->mass, sizeX, sizeY)));
-	//pcar.car->boxShape = cpSpaceAddShape(g_space, cpBoxShapeNew(pcar.car->boxBody, sizeX, sizeY, 0.0));
-	//cpShapeSetElasticity(pcar.car->boxShape, 0.0f);
-	//cpShapeSetFriction(pcar.car->boxShape, 0.7f);
-	//strncpy(pcar.car->filename,"PlayerCar", 20);
-	//cpBodySetPosition(pcar.car->boxBody, pcar.car->startPos);
-	SDL_Rect* chipmunkBox = new SDL_Rect();
-	chipmunkBox->x = pcar.car->startPos.x;
-	chipmunkBox->y = pcar.car->startPos.y;
-	chipmunkBox->w = sizeX;
-	chipmunkBox->h = sizeY;
+	//pcar.boxSize = 1;
+	//pcar.boxMass = 1;
+	//cpFloat radius = cpvlength(cpv(pcar.boxSize, pcar.boxSize));
+
+	//cpBody *boxBody = cpSpaceAddBody(g_space, cpBodyNew(pcar.boxMass, cpMomentForBox(pcar.boxMass, pcar.boxSize, pcar.boxSize)));
+	//cpShape *boxShape = cpSpaceAddShape(g_space, cpBoxShapeNew(boxBody, pcar.boxSize, pcar.boxSize, 0.0));
+	//cpShapeSetElasticity(boxShape, 0.0f);
+	//cpShapeSetFriction(boxShape, 0.7f);
+
+	//cpVect startPos = cpv(450, 340);// set the starting position in chipmunk coordinates
+	//cpBodySetPosition(boxBody, startPos);
+	//
+	pcar.car->chipmunkBox = new SDL_Rect();
+	//pcar.car->chipmunkBox->x = pcar.car->startPos.x;
+	//pcar.car->chipmunkBox->y = pcar.car->startPos.y;
+	//pcar.car->chipmunkBox->w = sizeX;
+	//pcar.car->chipmunkBox->h = sizeY;
 	return pcar;
 }
 
@@ -129,7 +135,12 @@ void thinkCar(struct Entity_S *self)
 	self->position.x+= self->velocity.x;
 	self->position.y+= self->velocity.y;
 
+	/*TO DO
+	
+	Get car acceleration and velocity from chipmunk, and use here mtl23/9/29/2019
+	 
 
+	*/
 
 	//slog("SPEED is %f %f", self->velocity.x, self->velocity.y);
 	//slog("ACCEL.x is %f", self->acceleration.x);
