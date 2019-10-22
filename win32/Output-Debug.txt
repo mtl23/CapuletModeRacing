@@ -1,0 +1,88 @@
+﻿'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\gametest.exe', Symbols loaded.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\ntdll.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\kernel32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\KernelBase.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\SDL2.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\SDL2_image.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\gdi32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\msvcrt.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\SDL2_ttf.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\user32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\msvcr100d.dll', Symbols loaded.
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\SDL2_mixer.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\imm32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\libfreetype-6.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\ole32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\combase.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\zlib1.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\winmm.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\rpcrt4.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\sspicli.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\winmmbase.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\cryptbase.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\cfgmgr32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\bcryptprimitives.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\sechost.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\oleaut32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\shell32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\windows.storage.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\advapi32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\shlwapi.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\kernel.appcore.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\SHCore.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\powrprof.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\profapi.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\version.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\uxtheme.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\msctf.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Program Files (x86)\Common Files\Microsoft Shared\Ink\tiptsf.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\dwmapi.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\clbcatq.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\d3d9.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\igdumdim32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\setupapi.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\rmclient.dll', Cannot find or open the PDB file
+'gametest.exe': Unloaded 'C:\Windows\SysWOW64\rmclient.dll'
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\nvinit.dll', Cannot find or open the PDB file
+'gametest.exe': Unloaded 'C:\Windows\SysWOW64\nvinit.dll'
+The thread 'Win32 Thread' (0x18d4) has exited with code 0 (0x0).
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\igdusc32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\XAudio2_7.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\MMDevAPI.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\devobj.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\propsys.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\AudioSes.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\WinTypes.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\avrt.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\libmodplug-1.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\wdmaud.drv', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\ksuser.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\msacm32.drv', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\msacm32.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\midimap.dll', Cannot find or open the PDB file
+The thread 'Win32 Thread' (0x18b4) has exited with code 0 (0x0).
+'gametest.exe': Loaded 'C:\Users\mtl23\2Dgames\M0de7\win32\libpng16-16.dll', Binary was not built with debug information.
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\UIAutomationCore.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\userenv.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\sxs.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\oleacc.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\twinapi.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\twinapi.appcore.dll', Cannot find or open the PDB file
+'gametest.exe': Loaded 'C:\Windows\SysWOW64\bcrypt.dll', Cannot find or open the PDB file
+The thread 'Win32 Thread' (0x77c) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1d08) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x2594) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x156c) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1470) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1120) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1658) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0xa3c) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x560) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1c74) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0xad4) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x11c8) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1594) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x2430) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x1a50) has exited with code 0 (0x0).
+The thread 'Win32 Thread' (0x14f0) has exited with code 0 (0x0).
+The program '[8848] gametest.exe: Native' has exited with code 0 (0x0).
