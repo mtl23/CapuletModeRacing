@@ -78,31 +78,31 @@ printf("%s",mat->str);
 SDL_CreateWindowAndRenderer(WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_RESIZABLE, &g_mainWindow, &g_renderer);
 SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
  if( TTF_Init() == -1 )
-    {
-        return false;    
-    }
+	{
+		return false;    
+	}
 
   if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
-    {
-        return false;  
+	{
+		return false;  
   }
 
   /////////////////////////////////////////////////////////////////////////////////
-    Mix_Music *menu_music;
+	Mix_Music *menu_music;
 	menu_music = Mix_LoadMUS( "sfx/Theme.WAV" );
-    Mix_Music *demo_music;
+	Mix_Music *demo_music;
 	demo_music = Mix_LoadMUS( "sfx/surf.mid" );
 	
 	InitSpriteSystem();
 	InitEntitySystem(entityMax);
 	
 	if( Mix_PlayingMusic() == 0 )
-                    {
-                        //Play the music
-                        if( Mix_PlayMusic( menu_music, -1 ) == -1 )
-                        {
-                            return 1;
-                        } 
+					{
+						//Play the music
+						if( Mix_PlayMusic( menu_music, -1 ) == -1 )
+						{
+							return 1;
+						} 
 					}
 	ShowTitle();
 	Mix_PlayMusic( demo_music, -1 );
@@ -163,7 +163,7 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	float xPos_offset = 0;
 	float yPos_offset = 0;
 	do
- 	{
+	{
 	SDL_RenderClear(g_renderer);	
 	DrawBG(BG1, MyCam);	
 
@@ -239,10 +239,10 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	keys = SDL_GetKeyboardState(NULL);
 
 	if(keys[SDL_SCANCODE_ESCAPE])
-    {
-        
+	{
+		
 		done = 1;
-    }
+	}
 	
 		NextFrame();
 		cpSpaceStep(g_space, 1.0f/60.0f);
@@ -252,7 +252,7 @@ SDL_SetWindowTitle(g_mainWindow, "Capulet Mode");
 	//FREE UP EVERYTHING HERE
   
 	SDL_DestroyRenderer( g_renderer );
-    SDL_DestroyWindow( g_mainWindow );
+	SDL_DestroyWindow( g_mainWindow );
 	g_renderer = NULL;
 	 g_mainWindow = NULL;
 	spriteFree(&BG1);	
